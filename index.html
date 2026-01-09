@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Sunny 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      text-align: center;
+      color: #333;
+    }
+    section {
+      padding: 60px 20px;
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    h1, h2 {
+      color: #b30059;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background-color: #ff4d6d;
+      color: white;
+    }
+    button:hover {
+      background-color: #e6004c;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="active" id="page1">
+  <div class="card">
+    <h1>🎉 Happy 30th Birthday Sunny 🎉</h1>
+    <p>
+      To the most hardworking, intelligent, and caring man ❤️  
+      This website is made with love — just for YOU.
+    </p>
+    <button onclick="goTo('page2')">Click here Birthday Boy 🎁</button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="page2">
+  <div class="card">
+    <h2>💪 My Hardworking Hero</h2>
+    <p>
+      Sunny, I see how hard you work every single day.  
+      Your dedication, intelligence, and focus inspire me so much 💕  
+      I am extremely proud of the man you are.
+    </p>
+    <button onclick="goTo('page3')">More about YOU 😌</button>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section id="page3">
+  <div class="card">
+    <h2>😜 Sunny Unfiltered</h2>
+    <p>
+      🎂 Age: 30 (but still my baby)<br>
+      ⚖️ Weight: 45 kg of pure cuteness<br>
+      📱 Hobby: Insta & memes always 😂<br>
+      🧠 Nature: Smart & intelligent<br>
+      ❤️ Heart: Gold (always ready to buy me anything 😌)
+    </p>
+    <button onclick="goTo('page4')">Serious part 🫶</button>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section id="page4">
+  <div class="card">
+    <h2>🤍 I Care About You</h2>
+    <p>
+      I care when you overwork.  
+      I care when you forget to rest.  
+      Promise me you'll take care of yourself — for me ❤️
+    </p>
+    <button onclick="goTo('page5')">Your Gift 🎁</button>
+  </div>
+</section>
+
+<!-- PAGE 5 -->
+<section id="page5">
+  <div class="card">
+    <h2>🎁 Do you want your gift?</h2>
+    <button onclick="goTo('gift')">YES 😍</button>
+    <button onclick="goTo('nope')">NO 🙃</button>
+  </div>
+</section>
+
+<!-- NO PAGE -->
+<section id="nope">
+  <div class="card">
+    <h2>❌ Wrong Answer 😜</h2>
+    <p>
+      You don’t say NO to my gift, Sunny 😌  
+      Try again 👇
+    </p>
+    <button onclick="goTo('gift')">YES ❤️</button>
+  </div>
+</section>
+
+<!-- GIFT PAGE -->
+<section id="gift">
+  <div class="card">
+    <h2>🎊 SURPRISEEEE 🎊</h2>
+    <p>
+      Your real gift is ME loving you endlessly ❤️  
+      Happy 30th Birthday Sunny 🎂  
+      I love you more than memes and Insta 😘
+    </p>
+  </div>
+</section>
+
+<script>
+  function goTo(id) {
+    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    confetti();
+  }
+
+  function confetti() {
+    for (let i = 0; i < 50; i++) {
+      let conf = document.createElement("div");
+      conf.style.position = "fixed";
+      conf.style.width = "10px";
+      conf.style.height = "10px";
+      conf.style.background = ["#ff4d6d","#ffd166","#06d6a0","#118ab2"][Math.floor(Math.random()*4)];
+      conf.style.left = Math.random() * 100 + "vw";
+      conf.style.top = "-10px";
+      conf.style.borderRadius = "50%";
+      conf.style.zIndex = 9999;
+      document.body.appendChild(conf);
+
+      let fall = conf.animate([
+        { transform: "translateY(0px)" },
+        { transform: "translateY(100vh)" }
+      ], {
+        duration: 2000 + Math.random() * 2000,
+        easing: "ease-out"
+      });
+
+      fall.onfinish = () => conf.remove();
+    }
+  }
+</script>
+
+</body>
+</html>
